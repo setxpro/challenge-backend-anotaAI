@@ -33,7 +33,7 @@ public class CategoryService {
                 .orElseThrow(CategoryNotFoundException::new);
 
         if (!categoryData.title().isEmpty()) category.setTitle(categoryData.title());
-        if (!categoryData.title().isEmpty()) category.setDescription(categoryData.description());
+        if (!categoryData.description().isEmpty()) category.setDescription(categoryData.description());
 
         this.categoryRepository.save(category);
 
@@ -44,6 +44,10 @@ public class CategoryService {
         Category category = this.categoryRepository.findById(id)
                 .orElseThrow(CategoryNotFoundException::new);
         this.categoryRepository.delete(category);
+    }
+
+    public Optional<Category> getById(String id) {
+        return this.categoryRepository.findById(id);
     }
 
 }

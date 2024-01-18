@@ -19,7 +19,7 @@ public class CategoryController {
     }
 
     @PostMapping
-    public ResponseEntity<Category> insertCategory(@RequestBody CategoryDTO categoryData) {
+    public ResponseEntity<Category> insert(@RequestBody CategoryDTO categoryData) {
        Category newCategory = this.categoryService.insert(categoryData);
        return ResponseEntity.ok().body(newCategory);
     }
