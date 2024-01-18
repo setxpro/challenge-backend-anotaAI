@@ -1,63 +1,59 @@
+# Restaurant Marketplace
+## AnotaAi Backend Challenge
 
-<h1>Backend Analyst Candidate Test</h1>
-Dear developer,
+![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
+![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white)
+[![Licence](https://img.shields.io/github/license/Ileriayo/markdown-badges?style=for-the-badge)](./LICENSE)
+![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
+![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white)
 
-Welcome to the Backend Analyst Candidate Test. This test aims to assess your general knowledge and development speed. Below, you will find the details and requirements for this test.
+This project is an API built using **Java, Java Spring, AWS Simple Queue Service, Mongo DB and AWS Simple Storage Service.**
 
+## Table of Contents
 
-<strong>The Challenge</strong>
-
-Your task is to develop an API using Node.js for a product catalog management system in a marketplace application. You should analyze and convert the following user stories into routes for the application:
-
-<strong>User Stories:</strong>
-
-- As a user, I want to register a product with its owner, so that I can access its data in the future (title, description, price, category, owner ID).
-- As a user, I want to register a category with its owner, so that I can access its data in the future (title, description, owner ID).
-- As a user, I want to associate a product with a category.
-- As a user, I want to update the data of a product or category.
-- As a user, I want to delete a product or category from my catalog.
-- A product can only be associated with one category at a time.
-- Assume that products and categories belong only to one owner.
-
-- Keep in mind that this is an online product catalog, which means there will be multiple requests for editing items/categories per second, as well as accessing the catalog search endpoint.
-- Consider the product catalog as a JSON compilation of all available categories and items owned by a user. This way, the catalog search endpoint does not need to fetch information from the database.
-- Whenever there is a change in the product catalog, publish this change to the "catalog-emit" topic in the AWS SQS service.
-- Implement a consumer that listens to catalog changes for a specific owner.
-- When the consumer receives a message, search the database for that owner's catalog, generate the catalog JSON, and publish it to an AWS S3 service bucket.
-
-<strong>You need to develop this test using the following technologies:</strong>
-
-- MongoDB for the database.
-- AWS SQS for the catalog change notifications.
-- AWS S3 for storing the catalog JSON.
-- Node.js for the backend.
-- Express.js as the web framework.
-
-<hr>
-<strong>Diagram representing the final structure of the project:</strong> <br><br>
-![image](https://github.com/githubanotaai/new-test-backend-nodejs/assets/52219768/504ba448-f128-41db-ae86-18dc19c0dc9d)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Usage](#usage)
+- [API Endpoints](#api-endpoints)
+- [Database](#database)
+- [Contributing](#contributing)
 
 
-<hr>
+## Installation
 
-<strong>Instructions</strong>
+1. Clone the repository:
 
-<strong>To begin the test, fork this repository, create a branch with your full name, and send us the link to your completed test (link to your repository). If you only clone the repository, you won't be able to push changes, making the pull request more complicated.</strong>
-- Use your own AWS account to set up the required services.
-- Update the README file with instructions on how to run your application.
-- Paste the branch name into the GUPY system and indicate the completion of the test.
-- Feel free to provide us with feedback regarding the test.
+```bash
+git clone https://github.com/setxpro/challenge-backend-anotaAI.git
+```
 
-<strong>Our Evaluation Criteria</strong>
-We will assess the following aspects of your solution:
+2. Install dependencies with Maven
 
-- Knowledge of JavaScript, Node.js, and Express.js.
-- Proper structure of the application layers.
-- Handling of outgoing calls.
-- Effective use of environment variables.
-- Implementation of unit tests.
-- Logging mechanisms.
-- Error handling strategies.
-- Documentation quality.
-- Code organization, module separation, readability, and comments.
-- Commit history.
+3. Create a configuration with your runtime environment variables with your AWS Credentials that are used in `application.properties`
+
+```yaml
+aws.region=us-east-1
+aws.accessKeyId=${AWS_KEY_ID}
+aws.secretKey=${AWS_SECRET}
+```
+
+**Config Values**
+
+```yaml
+AWS_KEY_ID=VALUE;AWS_SECRET=VALUE2
+```
+## Usage
+
+1. Start the application with Maven
+2. The API will be accessible at http://localhost:8090
+
+## API Endpoints
+The API provides the following endpoints:
+
+https://documenter.getpostman.com/view/27832983/2s9YsRd9gb
+
+## Contributing
+
+Contributions are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request to the repository.
+
+When contributing to this project, please follow the existing code style, [commit conventions](https://www.conventionalcommits.org/en/v1.0.0/), and submit your changes in a separate branch.
