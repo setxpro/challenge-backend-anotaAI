@@ -1,4 +1,4 @@
-package com.patrickanjos.desafioanotaai.config;
+package com.patrickanjos.desafioanotaai.config.mongo;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
